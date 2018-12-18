@@ -34,7 +34,7 @@ function doGet() {
     if(k==5 && i>0){
       ss[i][k]=moment(ss[i][k]).format("YY/MM/DD HH:mm");
     }
-    if(k==9 && i>0){
+    if(k==10 && i>0){
       ss[i][k]=moment(ss[i][k]).format("HH:mm");
     }
     
