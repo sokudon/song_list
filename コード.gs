@@ -12,7 +12,7 @@ function doGet() {
   var sheets = ss.getSheetByName(sname);
   
 　var last_row = sheets.getLastRow()-1;
-　var last_col = 10;
+　var last_col = 11;
   
   
    var values= sheets.getRange(1,1,last_row ,last_col).getValues();
@@ -30,7 +30,7 @@ function doGet() {
   for(var i=0;i<ss.length;i++)
   {
     st +="<tr>";
-  for(var k=0;k<10;k++){
+  for(var k=0;k<11;k++){
     if(k==5 && i>0){
       ss[i][k]=moment(ss[i][k]).format("YY/MM/DD HH:mm");
     }
