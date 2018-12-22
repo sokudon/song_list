@@ -39,27 +39,15 @@ function doGet() {
   
  ss=filetercombine(ss);//分離後QS
  ss=initsort(ss);
- 
-
-
-
-  
-  
-  
+   
   var st="曲追加ペース;" +  ((last_row-17)/kikan) +"<br>";
   
   
-  for(var i=1;i<ss.length;i++)
+  for(var i=0;i<ss.length;i++)
   {
     st +="<tr>";
   for(var k=0;k<11;k++){
-  //  if(k==5 && i>0){
-  //    ss[i][k]=moment(ss[i][k]).format("YY/MM/DD HH:mm");
-  //  }
-  //  if(k==10 && i>0){
-      //ss[i][k]=moment(ss[i][k]).format("HH:mm");
-  //  }
-    
+   
   st += "<td>"+ss[i][k] +"</td>";
   }
   st += "</tr>";
