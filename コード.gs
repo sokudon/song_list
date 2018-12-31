@@ -118,7 +118,7 @@ function filetercombine(data){
 //他　QS式　初期＞イベ＞コミュ＞実装
 
 var head=[];
-var foot=[];
+var extra=[];var r=0;
 var all=[];var t=0;
 var hoka=[];var s=0;
 for(var i=0;i<data.length;i++){
@@ -127,9 +127,6 @@ hoka[s]=[];
 for(var k=0;k<data[0].length;k++){
 if(i==0){
 head[k]=data[i][k];
-}
-else if(data[i][song]=="Blooming Star"){
-foot[k]=data[i][k];
 }
 else if(data[i][1]=="all"){
 all[t][k]=data[i][k];
@@ -142,10 +139,17 @@ if(k==data[0].length-1){s++;}
 hoka.length=hoka.length-1;
 all.length=all.length-1;
 
-
-all.sort(function(a,b){
+extra.sort(function(a,b){
 return (moment("20"+a[release]) - moment("20"+b[release]));
 });
+  
+all.sort(function(a,b){
+return (moment("20"+a[release]) - moment("20"+b[release]));
+}); 
+all.sort(function(a,b){
+        if(b[0].indexOf("e")) return 1;
+        if(a[0]. indexOf("e")) return -1;
+});  
 all.sort(function(a,b){
         if(b[uta]) return 1;
         if(a[uta]) return -1;
@@ -180,9 +184,6 @@ data[0]=[];
 data[0]=head;
 data=data.concat(hoka);
 data=data.concat(all);
-data.length++;
-data[data.length-1]=[];
-data[data.length-1]=foot;
 
 
 
