@@ -14,7 +14,7 @@ function doGet() {
   var sheets = ss.getSheetByName(sname);
   
 　var last_row = sheets.getLastRow()-1;
-　var last_col = 11;
+　var last_col = 12;
   
   
    var values= sheets.getRange(1,1,last_row ,last_col).getValues();
@@ -27,11 +27,11 @@ function doGet() {
  
   for(var i=1;i<ss.length;i++)
   {
-  for(var k=0;k<11;k++){
+  for(var k=0;k<12;k++){
     if(k==5 && i>0){
       ss[i][k]=moment(ss[i][k]).format("YY/MM/DD HH:mm");
     }
-    if(k==10 && i>0){
+    if(k==11 && i>0){
       ss[i][k]=moment(ss[i][k]).format("HH:mm");
     }
   }
@@ -46,7 +46,7 @@ function doGet() {
   for(var i=0;i<ss.length;i++)
   {
     st +="<tr>";
-  for(var k=0;k<11;k++){
+  for(var k=0;k<12;k++){
    
   st += "<td>"+ss[i][k] +"</td>";
   }
@@ -124,9 +124,14 @@ var hoka=[];var s=0;
 for(var i=0;i<data.length;i++){
 all[t]=[];
 hoka[s]=[];
+extra[r]=[];
 for(var k=0;k<data[0].length;k++){
 if(i==0){
 head[k]=data[i][k];
+}
+else if(data[i][4].indexOf("特")>0){//u7279 特
+extra[r][k]=data[i][k];
+if(k==data[0].length-1){r++;}
 }
 else if(data[i][1]=="all"){
 all[t][k]=data[i][k];
@@ -182,8 +187,9 @@ return a[lv]-b[lv];
 data=[];
 data[0]=[];
 data[0]=head;
-data=data.concat(hoka);
 data=data.concat(all);
+data=data.concat(hoka);
+data=data.concat(extra);
 
 
 
