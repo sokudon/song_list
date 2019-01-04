@@ -38,6 +38,7 @@ function doGet() {
   }  
   
  ss=filetercombine(ss);//分離後QS
+ss.length=last_row-1;
    
   var st="曲追加ペース;" +  ((last_row-17)/kikan) +"<br>";
   
@@ -192,7 +193,6 @@ data[0]=head;
 data=data.concat(all);
 data=data.concat(hoka);
 data=data.concat(extra);
-
 
 
   return data;
