@@ -38,7 +38,7 @@ function doGet() {
   }  
   
  ss=filetercombine(ss);//分離後QS
-ss.length=last_row-1;
+  
    
   var st="曲追加ペース;" +  ((last_row-17)/kikan) +"<br>";
   
@@ -141,8 +141,15 @@ else{
 hoka[s][k]=data[i][k];
 if(k==data[0].length-1){s++;}
 }}}
-hoka.length=hoka.length-1;
-all.length=all.length-1;
+  
+  if(hoka[hoka.length-1]==""){
+  hoka.length=hoka.length-1;}
+  if(all[all.length-1]==""){
+  all.length=all.length-1;
+  }
+  if(extra[extra.length-1]==""){
+  extra.length=extra.length-1;
+  }
 
 extra.sort(function(a,b){
 return (moment("20"+a[release]) - moment("20"+b[release]));
