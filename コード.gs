@@ -38,7 +38,6 @@ function doGet() {
   }  
   
  ss=filetercombine(ss);//分離後QS
- ss=initsort(ss);
    
   var st="曲追加ペース;" +  ((last_row-17)/kikan) +"<br>";
   
@@ -73,7 +72,7 @@ function wmap_getSheetsName(sheets){
   return sheet_names;
 }
 
-var init=["",
+var init=[
 "ココロがかえる場所",
 "Blue Symphony",
 "Sentimental Venus",
@@ -83,14 +82,14 @@ var init=["",
 function initsort(data){
 
 var BBD=[];
-for(var i=1;i<5;i++){
+for(var i=0;i<4;i++){
 BBD[i]=[];
 for(var k=0;k<data[0].length;k++){
 BBD[i][k]=data[i][k];
 }}
-var t=1;
-for(var i=1;i<5;i++){
-for(var k=1;k<5;k++){
+var t=0;
+for(var i=0;i<4;i++){
+for(var k=0;k<4;k++){
 if(init[i]==BBD[k][2]){
 for(var j=0;j<data[0].length;j++){
 data[t][j]=BBD[k][j];
@@ -184,6 +183,9 @@ return a[lv]-b[lv];
 }
 });
 
+  
+hoka=initsort(hoka);
+  
 data=[];
 data[0]=[];
 data[0]=head;
